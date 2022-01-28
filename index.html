@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-// the rest of your page's code..
-    <script src="./offline.html"></script>
+<head> 
     <!-- Service worker registration -->
         <script type="text/javascript">
           if (navigator.serviceWorker.controller) {
@@ -29,16 +27,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   <meta charset="UTF-8" />
-   <title>Hoporo</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="icon" href="./media/icon.png" type="image/png">
-   <link href="./styles/main.css" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Signika:400,700&display=swap" rel="stylesheet">
-   <script src="https://kit.fontawesome.com/c74bd1d80e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
 
    <div class="modal-container">
       <div class="modal">
