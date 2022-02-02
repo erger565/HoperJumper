@@ -1,70 +1,50 @@
 <!DOCTYPE html>
+<!-- 
+ Copyright 2021 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>You are offline</title>
-
-    <!-- Inline the page's stylesheet. -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA Edit</title>
     <style>
       body {
-        font-family: helvetica, arial, sans-serif;
-        margin: 2em;
+        background: #282c34;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        margin: 0;
       }
 
-      h1 {
-        font-style: italic;
-        color: #373fff;
-      }
-
-      p {
-        margin-block: 1rem;
-      }
-
-      button {
-        display: block;
+      .offline {
+        align-items: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 40ch;
+        min-height: 100vh;
       }
     </style>
   </head>
   <body>
-    <h1>You are offline</h1>
-
-    <p>Click the button below to try reloading.</p>
-    <button type="button">⤾ Reload</button>
-
-    <!-- Inline the page's JavaScript file. -->
-    <script>
-      // Manual reload feature.
-      document.querySelector("button").addEventListener("click", () => {
-        window.location.reload();
-      });
-
-      // Listen to changes in the network state, reload when online.
-      // This handles the case when the device is completely offline.
-      window.addEventListener('online', () => {
-        window.location.reload();
-      });
-
-      // Check if the server is responding and reload the page if it is.
-      // This handles the case when the device is online, but the server
-      // is offline or misbehaving.
-      async function checkNetworkAndReload() {
-        try {
-          const response = await fetch('.');
-          // Verify we get a valid response from the server
-          if (response.status >= 200 && response.status < 500) {
-            window.location.reload();
-            return;
-          }
-        } catch {
-          // Unable to connect to the server, ignore.
-        }
-        window.setTimeout(checkNetworkAndReload, 2500);
-      }
-
-      checkNetworkAndReload();
-    </script>
+    <div class="offline">
+      <h1>Offline</h1>
+      <p>The current page isn't available offline. Please try again when when you're back online.</p>
+    </div>
   </body>
 </html>
